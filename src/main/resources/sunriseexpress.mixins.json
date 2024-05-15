@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.arasitensei.sunriseexpress.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "sunriseexpress.refmap.json",
+  "mixins": [
+    "create.ISlidingDoorBlockEntityMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
