@@ -1,7 +1,6 @@
 package io.arasitensei.sunriseexpress;
 
 import com.tterrag.registrate.util.entry.BlockEntry;
-import io.arasitensei.sunriseexpress.content.decoraction.sidePanel.DoubleHingedSidePanelBlock;
 import io.arasitensei.sunriseexpress.content.decoraction.trainDoor.TrainDoorBlock;
 import io.arasitensei.sunriseexpress.foundation.data.BuilderTransformersSE;
 import net.minecraft.world.level.material.MaterialColor;
@@ -21,12 +20,7 @@ public class AllBlocksSE {
                             .noOcclusion())
                     .register();
 
-    public static final BlockEntry<DoubleHingedSidePanelBlock> TEST =
-            REGISTRATE.block("test", p -> new DoubleHingedSidePanelBlock(p))
-                    .transform(BuilderTransformersSE.doubleHingedSidePanelBlock("test"))
-                    .properties(p -> p.color(MaterialColor.TERRACOTTA_LIGHT_GRAY)
-                            .noOcclusion())
-                    .register();
+    // TODO 2024/05/22 : Add new Train Side Panel Blocks here
 
     public static void register() {
     }

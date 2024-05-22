@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "sunriseexpress:item/e235_train_double_sliding_door"
+  }
+}

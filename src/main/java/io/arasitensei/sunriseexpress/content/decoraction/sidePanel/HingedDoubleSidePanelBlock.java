@@ -1,7 +1,7 @@
 package io.arasitensei.sunriseexpress.content.decoraction.sidePanel;
 
-import io.arasitensei.sunriseexpress.foundation.block.HingeSideHandler;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -11,13 +11,14 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
-public class DoubleHingedSidePanelBlock extends DoubleSidePanelBlock {
+public class HingedDoubleSidePanelBlock extends DoubleSidePanelBlock {
 
     public static final EnumProperty<DoorHingeSide> HINGE = BlockStateProperties.DOOR_HINGE;
 
-    public DoubleHingedSidePanelBlock(Properties properties) {
+    public HingedDoubleSidePanelBlock(Properties properties) {
         super(properties);
         this.stateDefinition.any().setValue(HINGE, DoorHingeSide.LEFT);
     }
@@ -29,10 +30,28 @@ public class DoubleHingedSidePanelBlock extends DoubleSidePanelBlock {
         if (blockpos.getY() < level.getMaxBuildHeight() - 1 &&
                 level.getBlockState(blockpos.above()).canBeReplaced(context)) {
             return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection())
-                    .setValue(HINGE, HingeSideHandler.getHinge(context)).setValue(HALF, DoubleBlockHalf.LOWER);
+                    .setValue(HINGE, this.getHinge(context)).setValue(HALF, DoubleBlockHalf.LOWER);
         } else {
             return null;
         }
+    }
+
+    // NOTE 2024/05/22 : Make myself understand how this method getHinge runs
+    public DoorHingeSide getHinge(BlockPlaceContext context) {
+
+        BlockPos blockpos = context.getClickedPos();
+        Direction direction = context.getHorizontalDirection();
+
+        int stepX = direction.getStepX();
+        int stepZ = direction.getStepZ();
+
+        Vec3 vec3 = context.getClickLocation();
+        double x = vec3.x - (double)blockpos.getX();
+        double z = vec3.z - (double)blockpos.getZ();
+
+        return (stepX >= 0 || !(z < 0.5D)) && (stepX <= 0 || !(z > 0.5D)) &&
+                (stepZ >= 0 || !(x > 0.5D)) && (stepZ <= 0 || !(x < 0.5D)) ?
+                DoorHingeSide.LEFT : DoorHingeSide.RIGHT;
     }
 
     @Override

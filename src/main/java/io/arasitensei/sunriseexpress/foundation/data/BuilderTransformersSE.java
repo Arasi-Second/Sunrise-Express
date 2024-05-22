@@ -6,10 +6,9 @@ import com.simibubi.create.content.decoration.slidingDoor.SlidingDoorMovementBeh
 import com.simibubi.create.foundation.data.AssetLookup;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
-import io.arasitensei.sunriseexpress.content.decoraction.sidePanel.DoubleHingedSidePanelBlock;
+import io.arasitensei.sunriseexpress.content.decoraction.sidePanel.HingedDoubleSidePanelBlock;
 import io.arasitensei.sunriseexpress.content.decoraction.trainDoor.TrainDoorBlock;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.core.Direction;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -28,7 +27,7 @@ import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 
 public class BuilderTransformersSE {
 
-    public static <B extends DoubleHingedSidePanelBlock, P> NonNullUnaryOperator<BlockBuilder<B, P>>
+    public static <B extends HingedDoubleSidePanelBlock, P> NonNullUnaryOperator<BlockBuilder<B, P>>
     doubleHingedSidePanelBlock(String type) {
         return b -> b.initialProperties(Material.METAL)
                 .properties(p -> p.requiresCorrectToolForDrops()
