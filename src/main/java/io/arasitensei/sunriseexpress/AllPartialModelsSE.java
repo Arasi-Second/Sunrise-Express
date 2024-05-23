@@ -12,7 +12,7 @@ public class AllPartialModelsSE {
     public static final Map<ResourceLocation, Triple<PartialModel>> TRAIN_SLIDING_DOORS = new HashMap<>();
 
     static {
-        putSlidingDoor("e235_train_double_sliding_door");
+        putSlidingDoor("jr_east_yamanote_line_e235_0_double_sliding_door");
     }
 
     private static void putSlidingDoor(String path) {

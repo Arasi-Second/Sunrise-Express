@@ -13,9 +13,10 @@ public class AllBlocksSE {
         REGISTRATE.creativeModeTab(() -> AllCreativeModeTabsSE.TAB_SUNRISE_EXPRESS_BASE);
     }
 
-    public static final BlockEntry<TrainDoorBlock> E235_TRAIN_DOUBLE_SLIDING_DOOR =
-            REGISTRATE.block("e235_train_double_sliding_door", p -> new TrainDoorBlock(p))
-                    .transform(BuilderTransformersSE.slidingDoor("e235_train_double_sliding_door"))
+    public static final BlockEntry<TrainDoorBlock> JR_EAST_YAMANOTE_LINE_E235_0_DOUBLE_SLIDING_DOOR =
+            REGISTRATE.block("jr_east_yamanote_line_e235_0_double_sliding_door", TrainDoorBlock::new)
+                    .transform(BuilderTransformersSE.slidingDoor(
+                            "jr_east_yamanote_line_e235_0_double_sliding_door"))
                     .properties(p -> p.color(MaterialColor.TERRACOTTA_LIGHT_GREEN)
                             .noOcclusion())
                     .register();

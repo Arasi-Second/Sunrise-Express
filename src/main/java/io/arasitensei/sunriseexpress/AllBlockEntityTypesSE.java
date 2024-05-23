@@ -9,10 +9,9 @@ import static io.arasitensei.sunriseexpress.SunriseExpress.REGISTRATE;
 public class AllBlockEntityTypesSE {
 
     public static final BlockEntityEntry<TrainDoorBlockEntity> TRAIN_DOOR =
-            REGISTRATE.blockEntity("train_door",
-                            TrainDoorBlockEntity::new)
+            REGISTRATE.blockEntity("train_door", TrainDoorBlockEntity::new)
                     .renderer(() -> TrainDoorRenderer::new)
-                    .validBlocks(AllBlocksSE.E235_TRAIN_DOUBLE_SLIDING_DOOR)
+                    .validBlocks(AllBlocksSE.JR_EAST_YAMANOTE_LINE_E235_0_DOUBLE_SLIDING_DOOR)
                     .register();
 
     public static void register() {

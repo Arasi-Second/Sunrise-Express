@@ -17,7 +17,7 @@ public class AllCreativeModeTabsSE {
             = new CreativeModeTab("tab_sunrise_express_building_blocks") {
         @Override
         public ItemStack makeIcon() {
-            return AllBlocksSE.E235_TRAIN_DOUBLE_SLIDING_DOOR.asStack();
+            return AllBlocksSE.JR_EAST_YAMANOTE_LINE_E235_0_DOUBLE_SLIDING_DOOR.asStack();
         }
     };
 

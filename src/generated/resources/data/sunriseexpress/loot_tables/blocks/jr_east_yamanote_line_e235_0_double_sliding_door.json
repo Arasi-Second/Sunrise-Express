@@ -10,13 +10,13 @@
           "conditions": [
             {
               "condition": "minecraft:block_state_property",
-              "block": "sunriseexpress:e235_train_double_sliding_door",
+              "block": "sunriseexpress:jr_east_yamanote_line_e235_0_double_sliding_door",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "sunriseexpress:e235_train_double_sliding_door"
+          "name": "sunriseexpress:jr_east_yamanote_line_e235_0_double_sliding_door"
         }
       ],
       "conditions": [

@@ -58,7 +58,7 @@ public class BuilderTransformersSE {
     }
 
     public static <B extends TrainDoorBlock, P> NonNullUnaryOperator<BlockBuilder<B, P>> slidingDoor(
-            String type) {
+            String name) {
         return b -> b.initialProperties(Material.NETHER_WOOD)
                 .properties(p -> p.requiresCorrectToolForDrops()
                         .strength(3.0F, 6.0F)
@@ -79,7 +79,7 @@ public class BuilderTransformersSE {
                 .item()
                 .tag(ItemTags.DOORS)
                 .tag(AllTags.AllItemTags.CONTRAPTION_CONTROLLED.tag)
-                .model((c, p) -> p.blockSprite(c, p.modLoc("item/" + type)))
+                .model((c, p) -> p.blockSprite(c, p.modLoc("item/" + name)))
                 .build();
     }
 }

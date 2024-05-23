@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "sunriseexpress:item/jr_east_yamanote_line_e235_0_double_sliding_door"
+  }
+}

@@ -64,7 +64,7 @@ public class TrainDoorRenderer extends SafeBlockEntityRenderer<TrainDoorBlockEnt
 
             partialSliding.translate(0, -0.001953125f, 0)
                     .translate(Vec3.atLowerCornerOf(facing.getNormal())
-                            .scale(valueClamp * 0.03125f));
+                            .scale(valueClamp * 0.0625f));
 
             if (slidingIndex == 0) {
                 partialSliding.translate(Vec3.atLowerCornerOf(movementDirection.getNormal())

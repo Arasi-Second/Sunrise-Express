@@ -2,9 +2,9 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"0": "sunriseexpress:block/e235_train/e235_train_side_panel_side",
-		"1": "sunriseexpress:block/e235_train/e235_train_double_sliding_door_front",
-		"particle": "sunriseexpress:block/e235_train/e235_train_light_green_particle"
+		"0": "sunriseexpress:block/jr_east_yamanote_line_e235_0/e235_0_side_panel_side",
+		"1": "sunriseexpress:block/jr_east_yamanote_line_e235_0/e235_0_double_sliding_door_front",
+		"particle": "sunriseexpress:block/jr_east_yamanote_line_e235_0/e235_0_light_green_particle"
 	},
 	"elements": [
 		{
