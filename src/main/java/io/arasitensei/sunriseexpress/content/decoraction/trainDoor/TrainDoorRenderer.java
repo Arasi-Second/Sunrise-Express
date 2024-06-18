@@ -8,6 +8,7 @@ import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRender
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
 import com.simibubi.create.foundation.utility.AngleHelper;
+import com.simibubi.create.foundation.utility.Couple;
 import com.simibubi.create.foundation.utility.Iterate;
 import com.simibubi.create.foundation.utility.animation.LerpedFloat;
 import io.arasitensei.sunriseexpress.AllPartialModelsSE;
@@ -41,58 +42,40 @@ public class TrainDoorRenderer extends SafeBlockEntityRenderer<TrainDoorBlockEnt
         if (blockState.getValue(DoorBlock.HINGE) == DoorHingeSide.LEFT)
             movementDirection = movementDirection.getOpposite();
 
-        LerpedFloat animation = ((ISlidingDoorBlockEntityMixin) blockEntity).getAnimation();
+        LerpedFloat animation = blockEntity.animation;
 
         float value = animation.getValue(partialTicks);
         float valueClamp = Mth.clamp(value * 10, 0, 1);
 
         VertexConsumer vertexConsumer = buffer.getBuffer(RenderType.cutoutMipped());
 
-        Triple<PartialModel> partials = AllPartialModelsSE.TRAIN_SLIDING_DOORS.get(blockState.getBlock()
+        Couple<PartialModel> partials = AllPartialModelsSE.TRAIN_SLIDING_DOORS.get(blockState.getBlock()
                 .getRegistryName());
 
         boolean flip = blockState.getValue(DoorBlock.HINGE) == DoorHingeSide.RIGHT;
         for (boolean left : Iterate.trueAndFalse) {
             float f = flip ? -1 : 1;
 
-            int slidingIndex = flip ^ left ? 0 : 1;
+            SuperByteBuffer partialSliding = CachedBufferer.partial(partials.get(flip ^ left), blockState);
 
-            SuperByteBuffer partialSliding = CachedBufferer.partial(partials.get(slidingIndex), blockState);
+            double rightPosX = facing == Direction.NORTH ? 1 / 2f : facing == Direction.SOUTH ? -1 / 2f : 0;
+            double rightPosZ = facing == Direction.EAST ? 1 / 2f : facing == Direction.WEST ? -1 / 2f : 0;
 
-            double rightPosX = facing == Direction.NORTH ? 0.5f : facing == Direction.SOUTH ? -0.5f : 0;
-            double rightPosZ = facing == Direction.EAST ? 0.5f : facing == Direction.WEST ? -0.5f : 0;
+            partialSliding.translate(0, 0, 0);
 
-            partialSliding.translate(0, -0.001953125f, 0)
-                    .translate(Vec3.atLowerCornerOf(facing.getNormal())
-                            .scale(valueClamp * 0.0625f));
-
-            if (slidingIndex == 0) {
+            if (flip ^ left) {
                 partialSliding.translate(Vec3.atLowerCornerOf(movementDirection.getNormal())
-                        .scale(value * value * f * 0.748046875f));
-            }
-
-            if (slidingIndex == 1) {
+                        .scale(value * value * f * 3 / 4f));
+            } else {
                 partialSliding.translate(rightPosX, 0, rightPosZ)
                         .translate(Vec3.atLowerCornerOf(movementDirection.getOpposite().getNormal())
-                                .scale(value * value * f * 0.748046875f));
+                                .scale(value * value * f * 3 / 4f));
             }
 
             partialSliding.rotateCentered(Direction.UP,
                     Mth.DEG_TO_RAD * AngleHelper.horizontalAngle(facing.getClockWise()));
 
             partialSliding.renderInto(ms, vertexConsumer);
-
-            if (left) {
-                int frameIndex = 2;
-
-                SuperByteBuffer partialFrame = CachedBufferer.partial(partials.get(frameIndex), blockState);
-
-                partialFrame.translate(0, 0, 0)
-                        .rotateCentered(Direction.UP,
-                                Mth.DEG_TO_RAD * AngleHelper.horizontalAngle(facing.getClockWise()));
-
-                partialFrame.renderInto(ms, vertexConsumer);
-            }
         }
     }
 }

@@ -1,4 +1,4 @@
-package io.arasitensei.sunriseexpress.content.decoraction.sidePanel;
+package io.arasitensei.sunriseexpress.content.decoraction.panel.singlePanel;
 
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import net.minecraft.core.BlockPos;
@@ -14,11 +14,11 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class SidePanelBlock extends HorizontalDirectionalBlock implements IWrenchable {
+public class SinglePanelBlock extends HorizontalDirectionalBlock implements IWrenchable {
 
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    public SidePanelBlock(Properties properties) {
+    public SinglePanelBlock(Properties properties) {
         super(properties);
         this.stateDefinition.any().setValue(FACING, Direction.EAST);
     }
@@ -31,7 +31,7 @@ public class SidePanelBlock extends HorizontalDirectionalBlock implements IWrenc
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SidePanelShapes.get(state.getValue(FACING));
+        return PanelShapes.get(state.getValue(FACING));
     }
 
     @Override

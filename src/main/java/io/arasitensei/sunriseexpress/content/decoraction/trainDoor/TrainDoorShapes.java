@@ -9,11 +9,10 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.stream.Stream;
 
 public class TrainDoorShapes {
-
     protected static final VoxelShape E_AABB = Stream.of(
-            Block.box(14, 0, -4, 15, 16, 20),
-            Block.box(13, 0, -16, 16, 16, -4),
-            Block.box(13, 0, 20, 16, 16, 32)
+        Block.box(14, 0, -4, 15, 16, 20),
+        Block.box(13, 0, -16, 16, 16, -4),
+        Block.box(13, 0, 20, 16, 16, 32)
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
     protected static final VoxelShape W_AABB = Stream.of(
             Block.box(1, 0, -4, 2, 16, 20),

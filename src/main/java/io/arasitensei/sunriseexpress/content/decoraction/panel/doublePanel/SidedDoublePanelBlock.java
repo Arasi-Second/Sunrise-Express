@@ -1,4 +1,4 @@
-package io.arasitensei.sunriseexpress.content.decoraction.sidePanel;
+package io.arasitensei.sunriseexpress.content.decoraction.panel.doublePanel;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -14,11 +14,11 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
-public class HingedDoubleSidePanelBlock extends DoubleSidePanelBlock {
+public class SidedDoublePanelBlock extends DoublePanelBlock {
 
     public static final EnumProperty<DoorHingeSide> HINGE = BlockStateProperties.DOOR_HINGE;
 
-    public HingedDoubleSidePanelBlock(Properties properties) {
+    public SidedDoublePanelBlock(Properties properties) {
         super(properties);
         this.stateDefinition.any().setValue(HINGE, DoorHingeSide.LEFT);
     }
@@ -36,7 +36,7 @@ public class HingedDoubleSidePanelBlock extends DoubleSidePanelBlock {
         }
     }
 
-    // NOTE 2024/05/22 : Make myself understand how this method getHinge runs
+    // NOTE 2024/05/22 : Make myself understand how does this method getHinge run
     public DoorHingeSide getHinge(BlockPlaceContext context) {
 
         BlockPos blockpos = context.getClickedPos();

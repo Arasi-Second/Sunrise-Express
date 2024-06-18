@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "sunriseexpress:jr_east_yamanote_line_e235_0_double_sliding_door"
+    "sunriseexpress:jr_east_yamanote_line_e235_0_double_sliding_door",
+    "sunriseexpress:jr_east_yamanote_line_e235_0_window_panel"
   ]
 }

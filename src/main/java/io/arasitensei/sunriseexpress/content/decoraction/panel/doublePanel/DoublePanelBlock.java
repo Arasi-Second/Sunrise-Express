@@ -1,5 +1,6 @@
-package io.arasitensei.sunriseexpress.content.decoraction.sidePanel;
+package io.arasitensei.sunriseexpress.content.decoraction.panel.doublePanel;
 
+import io.arasitensei.sunriseexpress.content.decoraction.panel.singlePanel.SinglePanelBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.LivingEntity;
@@ -18,11 +19,11 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import org.jetbrains.annotations.Nullable;
 
-public class DoubleSidePanelBlock extends SidePanelBlock {
+public class DoublePanelBlock extends SinglePanelBlock {
 
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
-    public DoubleSidePanelBlock(Properties properties) {
+    public DoublePanelBlock(Properties properties) {
         super(properties);
         this.stateDefinition.any().setValue(HALF, DoubleBlockHalf.LOWER);
     }

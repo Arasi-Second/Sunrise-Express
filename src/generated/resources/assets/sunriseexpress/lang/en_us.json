@@ -1,8 +1,5 @@
 {
-  "block.sunriseexpress.jr_east_yamanote_line_e235_0_double_sliding_door": "JR East Yamanote Line E235-0 Series Double Sliding Door",
-
-  "item.sunriseexpress.blue_train_ticket": "Blue Train Ticket",
-
-  "itemGroup.tab_sunrise_express_base": "Sunrise Express",
-  "itemGroup.tab_sunrise_express_building_blocks": "Sunrise Express' Building Blocks"
+  "block.sunriseexpress.jr_east_yamanote_line_e235_0_double_sliding_door": "Jr East Yamanote Line E235 0 Double Sliding Door",
+  "block.sunriseexpress.jr_east_yamanote_line_e235_0_window_panel": "Jr East Yamanote Line E235 0 Window Panel",
+  "item.sunriseexpress.blue_train_ticket": "Blue Train Ticket"
 }

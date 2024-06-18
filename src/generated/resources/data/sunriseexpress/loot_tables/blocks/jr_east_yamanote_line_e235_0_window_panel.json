@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "sunriseexpress:jr_east_yamanote_line_e235_0_window_panel",
+              "properties": {
+                "half": "lower"
+              }
+            }
+          ],
+          "name": "sunriseexpress:jr_east_yamanote_line_e235_0_window_panel"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}
